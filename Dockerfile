@@ -2,11 +2,11 @@ FROM php:7.4-apache
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-COPY ./deployApi/ /browser
+COPY ./deployApi/ /var/www/html
 
-COPY ./deployApp/ /browser
+COPY ./deployApp/ /var/www/html
 
-WORKDIR /browser
+WORKDIR /var/www/html
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
 && curl -sSk https://getcomposer.org/installer | php -- --disable-tls \
